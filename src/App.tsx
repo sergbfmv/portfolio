@@ -1,27 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import styled from 'styled-components';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, molestias?</p>
-        <a
-          className="App-links"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-           Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Title>Welcome to IT-INCUBATOR</Title>
+        </div>
+    );
 }
 
 export default App;
+
+const Title = styled.h1`
+    font-size: 1.5em;
+    text-align: center;
+    color: #e91e63;
+`;
