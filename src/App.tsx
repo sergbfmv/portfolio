@@ -1,5 +1,4 @@
 import './App.css';
-import styled from 'styled-components';
 import { Header } from './layout/header/Header';
 import { Main } from './layout/sections/main/Main';
 import {Skills} from "./layout/sections/skills/Skills";
@@ -12,7 +11,6 @@ function App() {
             <Header />
             <Main />
             <Skills title={'My Tech Stack'} paragraph={'Technologies I’ve been working with recently'} />
-
             <Footer />
         </div>
     );
