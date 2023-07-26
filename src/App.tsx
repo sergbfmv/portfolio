@@ -3,6 +3,8 @@ import { Header } from './layout/header/Header';
 import { Main } from './layout/sections/main/Main';
 import {Skills} from "./layout/sections/skills/Skills";
 import {Footer} from "./layout/footer/Footer";
+import {Contacts} from "./layout/sections/contacts/Contacts";
+import {Projects} from "./layout/sections/projects/Projects";
 
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
         <div className="App">
             <Header />
             <Main />
-            <Skills title={'My Tech Stack'} paragraph={'Technologies I’ve been working with recently'} />
+            <Skills />
+            <Projects />
+            <Contacts />
             <Footer />
         </div>
     );

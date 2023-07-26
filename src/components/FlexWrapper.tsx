@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-type FlexWraperPropsType = {
+type FlexWrapperPropsType = {
     direction?: string,
     justify?: string,
     align?: string,
     wrap?: string
 }
 
-export const FlexWraper = styled.div<FlexWraperPropsType> `
+export const FlexWrapper = styled.div<FlexWrapperPropsType> `
+  height: 100%;
   display: flex;
   flex-direction: ${props => props.direction || 'row'};
   justify-content: ${props => props.justify || 'flex-start'};

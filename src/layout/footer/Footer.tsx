@@ -3,21 +3,22 @@ import styled from 'styled-components';
 import {Logo} from "../../components/logo/Logo";
 import {SocialLinks} from "../../components/socialLinks/SocialLinks";
 import {Menu} from "../../components/menu/Menu";
-import {FlexWraper} from "../../components/FlexWraper";
+import {FlexWrapper} from "../../components/FlexWrapper";
+import { mainItems } from '../header/Header';
 
 export const Footer = () => {
     return (
         <StyledFooter>
-            <FlexWraper justify={'space-around'}>
+            <FlexWrapper justify={'space-around'}>
                 <Logo/>
                 <Phone>+91 12345 09876</Phone>
                 <Email>info@example.com</Email>
                 <SocialLinks/>
-            </FlexWraper>
-            <FlexWraper justify={'space-around'}>
-                <Menu/>
+            </FlexWrapper>
+            <FlexWrapper justify={'space-around'}>
+                <Menu menuItems={mainItems} />
                 <CRight>Designed and built by Pavan MG with Love & Coffee</CRight>
-            </FlexWraper>
+            </FlexWrapper>
         </StyledFooter>
     );
 };
