@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {theme} from "../../../styles/Theme";
+import {theme} from "../../../../styles/Theme";
 
-export const NavMenu = (props: { menuItems: Array<string> }) => {
+export const TabMenu = (props: { menuItems: Array<string> }) => {
     return (
-        <StyledNavMenu>
+        <StyledTabMenu>
             <ul>
                 {props.menuItems.map((item, index) => {
                     return <ListItem key={index}>
@@ -12,18 +12,20 @@ export const NavMenu = (props: { menuItems: Array<string> }) => {
                     </ListItem>
                 })}
             </ul>
-        </StyledNavMenu>
+        </StyledTabMenu>
     );
 };
 
-const StyledNavMenu = styled.nav`
+const StyledTabMenu = styled.nav`
+  
   ul {
     display: flex;
-    gap: 30px; 
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 352px;
+    width: 100%;
+    margin: 0 auto 40px;
   }
 `
-
 const ListItem = styled.li`
   &:hover {
     background-image: ${theme.colors.fontAccent};
@@ -32,10 +34,11 @@ const ListItem = styled.li`
 `
 
 const Link = styled.a`
-  font-family: DM Sans, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  font-weight: 400;
   color: ${theme.colors.fontSecondary};
+
 `
-
-

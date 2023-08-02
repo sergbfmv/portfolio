@@ -1,45 +1,39 @@
-import React from 'react';
-import styled from "styled-components";
+import React, {useState} from 'react';
 import {SocialLinks} from '../../components/socialLinks/SocialLinks';
 import {Container} from "../../components/Container";
-import {theme} from "../../styles/Theme";
-import { NavMenu } from './navMenu/NavMenu';
+import {DesktopMenu} from './headerMenu/desktopMenu/DesktopMenu';
 import {FlexWrapper} from "../../components/FlexWrapper";
-import logo from '../../assets/images/logo1.png'
+import {MobileMenu} from "./headerMenu/mobileMenu/mobileMenu";
+import mainLogo from '../../assets/images/logo1.svg'
+import {Icon} from "../../components/icon/Icon";
+import {S} from './Header_Styles'
 
 export const mainItems = ['Home', 'About', 'Tech Stack', 'Projects', 'Contacts']
-export const Header = () => {
+export const Header: React.FC = () => {
+    const [width, setWidth] = useState(window.innerWidth)
+    const breakpoint = 891;
+
+    React.useEffect(() => {
+        const handleWindowResize = () => setWidth(window.innerWidth)
+        window.addEventListener('resize', handleWindowResize)
+
+        return() => window.removeEventListener('resize', handleWindowResize)
+    }, [])
+
     return (
-        <StyledHeader>
+        <S.Header>
             <Container>
                 <FlexWrapper justify='space-between' align='center'>
-                    <a href=''><Logo src={logo} /></a>
-                    <Wrapper>
-                        <NavMenu menuItems={mainItems}/>
-                        <SocialLinks />
-                    </Wrapper>
+                    {/*<Icon iconId={'logo'} />*/}
+                    <a href=''><S.Logo src={mainLogo}/></a>
+                    <S.Wrapper>
+                        {width < breakpoint ? <MobileMenu menuItems={mainItems}/>
+                                            : <DesktopMenu menuItems={mainItems}/>}
+                        <SocialLinks/>
+                    </S.Wrapper>
                 </FlexWrapper>
             </Container>
-        </StyledHeader>
+        </S.Header>
     );
 };
 
-const StyledHeader = styled.header`
-  background-color: ${theme.colors.primaryBg};
-  padding: 40px 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 2;
-`
-
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-const Logo = styled.img `
-  width: 100px;
-  height: 60px;
-`

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Icon} from "../icon/Icon";
+import {theme} from "../../styles/Theme";
 
 export const SocialLinks = () => {
     return (
@@ -13,7 +14,7 @@ export const SocialLinks = () => {
                 </SocialItem>
                 <SocialItem>
                     <SocialLink href="">
-                        <Icon iconId={'tg'} width={'30px'} height={'30px'} viewBox={'0 0 30px 30px'} />
+                        <Icon iconId={'tg'} width={'30px'} height={'30px'} viewBox={'0 0 50px 50px'} />
                     </SocialLink>
                 </SocialItem>
                 <SocialItem>
@@ -27,7 +28,12 @@ export const SocialLinks = () => {
 };
 
 const StyledSocialLinks = styled.div `
-  
+  margin-left: 50px;
+
+  @media screen and (max-width: 891px) {
+    margin-left: 0;
+    margin-right: 70px;
+  }
 `
 
 const SocialList = styled.ul `
@@ -40,5 +46,9 @@ const SocialItem = styled.li `
 `
 
 const SocialLink = styled.a `
-
+    color: ${theme.colors.fontSecondary};
+  
+  &:hover {
+    color: #FFF;
+  }
 `

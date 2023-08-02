@@ -19,6 +19,8 @@ export const GlobalStyles = createGlobalStyle `
     -moz-osx-font-smoothing: grayscale;
     color: ${theme.colors.fontMain};
     line-height: 1.2;
+    
+    min-width: 360px;
   }
   
   a {
@@ -36,5 +38,10 @@ export const GlobalStyles = createGlobalStyle `
   
   section {
     background-color: ${theme.colors.primaryBg};
+    padding: 50px 0;
+    
+    @media ${theme.media.mobile} {
+      padding: 40px 0;
+    }
   }
 `

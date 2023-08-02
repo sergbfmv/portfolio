@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Container} from "../../../components/Container";
 import {theme} from "../../../styles/Theme";
+import {font} from "../../../styles/Common";
 
 export const Contacts = () => {
     return (
@@ -18,21 +19,17 @@ export const Contacts = () => {
 };
 
 const StyledContacts = styled.section`
-  min-height: 30vh;
+    
 `
 
 const Title = styled.h2 `
-  font-family: 'DM Sans';
-  font-size: 58px;
-  font-weight: 700;
+  ${font({family:'\'DM Sans\', sans-serif', weight: 700, Fmin: 20, Fmax: 58})}
   letter-spacing: -1px;
 `
 
 const MailTitle = styled.h3`
+  ${font({family:'\'DM Sans\', sans-serif', weight: 700, Fmin: 30, Fmax: 58})}
   text-align: center;
-  font-family: 'DM Sans';
-  font-size: 58px;
-  font-weight: 700;
   letter-spacing: -1px;
   background: ${theme.colors.fontAccent};
   -webkit-background-clip: text;

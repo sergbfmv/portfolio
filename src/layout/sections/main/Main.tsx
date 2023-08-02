@@ -4,21 +4,24 @@ import photo from '../../../assets/images/myPhoto.webp';
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Container} from "../../../components/Container";
 import {theme} from "../../../styles/Theme";
+import {font} from "../../../styles/Common";
+import abstract from '../../../assets/images/Abstract.svg'
 
 export const Main = () => {
     return (
         <StyledMain>
             <Container>
-                <FlexWrapper align='center' justify='space-between'>
+                <FlexWrapper align='center' justify='space-around'  wrap={'wrap'}>
                     <div>
                         <Text>Hi 👋, </Text>
                         <Text>My name is </Text>
                         <Name>Sergey Ignatov</Name>
-                        <MainTitle>I'm a frontend developer</MainTitle>
+                        <MainTitle>I'm a frontend dev</MainTitle>
                     </div>
                     <PhotoWrapper>
                         <Photo src={photo} alt={'my photo'}/>
                     </PhotoWrapper>
+                    {/*<img src={abstract} />*/}
                 </FlexWrapper>
             </Container>
         </StyledMain>
@@ -28,6 +31,10 @@ export const Main = () => {
 const StyledMain = styled.section`
   min-height: 100vh;
   display: flex;
+
+  @media ${theme.media.tablet} {
+    padding-top: 100px;
+  }
 `
 
 const Photo = styled.img`
@@ -35,6 +42,16 @@ const Photo = styled.img`
   height: 349px;
   border-radius: 230px;
   object-fit: cover;
+  
+  @media ${theme.media.tablet} {
+    width: 310px;
+    height: 310px;
+  }
+
+  @media ${theme.media.mobile} {
+    width: 310px;
+    height: 310px;
+  }
 `
 
 const PhotoWrapper = styled.div `
@@ -55,14 +72,12 @@ const PhotoWrapper = styled.div `
 `
 
 const MainTitle = styled.h1`
-  font-size: 58px;
-  font-weight: 700;
+  ${font({weight: 700, Fmin: 36, Fmax: 56})}
   letter-spacing: -1px;
 `
 
 const Name = styled.h2`
-  font-size: 58px;
-  font-weight: 700;
+  ${font({weight: 700, Fmin: 36, Fmax: 56})}
   background: ${theme.colors.fontAccent};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -70,7 +85,6 @@ const Name = styled.h2`
 `
 
 const Text = styled.p`
-  font-size: 58px;
-  font-weight: 700;
+  ${font({weight: 700, Fmin: 36, Fmax: 56})}
   letter-spacing: -1px;
 `
