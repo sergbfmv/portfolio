@@ -6,25 +6,31 @@ import {Skill} from './skill/Skill';
 import {SectionParagraph} from "../../../components/SectionParagraph";
 import {Container} from "../../../components/Container";
 
-export const Skills = () => {
+
+const skillData = [
+    {iconId: 'html'},
+    {iconId: 'css'},
+    {iconId: 'js'},
+    {iconId: 'ts'},
+    {iconId: 'react'},
+    {iconId: 'redux'},
+    {iconId: 'git'},
+    {iconId: 'vscode'},
+    {iconId: 'github'},
+    {iconId: 'styledComponent'},
+    {iconId: 'figma'},
+    {iconId: 'storyBook'},
+]
+export const Skills: React.FC = () => {
     return (
-        <StyleSkills>
+        <StyleSkills id='tech'>
             <Container>
                 <SectionTitle>My Tech Stack</SectionTitle>
                 <SectionParagraph>Technologies I’ve been working with recently</SectionParagraph>
                 <FlexWrapper wrap={'wrap'} justify={'space-between'}>
-                    <Skill iconId={'html'}/>
-                    <Skill iconId={'css'}/>
-                    <Skill iconId={'js'}/>
-                    <Skill iconId={'ts'}/>
-                    <Skill iconId={'react'}/>
-                    <Skill iconId={'redux'}/>
-                    <Skill iconId={'git'}/>
-                    <Skill iconId={'vscode'}/>
-                    <Skill iconId={'github'}/>
-                    <Skill iconId={'styledComponent'}/>
-                    <Skill iconId={'figma'}/>
-                    <Skill iconId={'storyBook'}/>
+                    {skillData.map((skill, index) => {
+                        return <Skill iconId={skill.iconId} key={index} />
+                    })}
                 </FlexWrapper>
             </Container>
         </StyleSkills>
@@ -32,6 +38,6 @@ export const Skills = () => {
 };
 
 const StyleSkills = styled.section`
-
+  position: relative;
 `
 

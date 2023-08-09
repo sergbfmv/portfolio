@@ -5,9 +5,9 @@ import {Container} from "../../../components/Container";
 import {theme} from "../../../styles/Theme";
 import {font} from "../../../styles/Common";
 
-export const Contacts = () => {
+export const Contacts: React.FC = () => {
     return (
-        <StyledContacts>
+        <StyledContacts id='contacts'>
             <Container>
                 <FlexWrapper direction='column' align='center'>
                     <Title>For any questions please mail me:</Title>

@@ -1,14 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import {theme} from "../../../../styles/Theme";
 
-export const TabMenu = (props: { menuItems: Array<string> }) => {
+export type TabStatusType = 'all' | 'landing' | 'react' | 'spa'
+
+type TabMenuPropsType = {
+    tabItems: Array<{ status: TabStatusType, title: string,}>,
+    changeFilterStatus: (value: TabStatusType) => void,
+    currentFilterStatus: string
+}
+export const TabMenu = (props: TabMenuPropsType) => {
     return (
         <StyledTabMenu>
             <ul>
-                {props.menuItems.map((item, index) => {
+                {props.tabItems.map((item, index) => {
                     return <ListItem key={index}>
-                        <Link href="">{item}</Link>
+                        <Link active={props.currentFilterStatus === item.status} as={'button'} onClick={() => {props.changeFilterStatus(item.status)}}>{item.title}</Link>
                     </ListItem>
                 })}
             </ul>
@@ -27,13 +34,10 @@ const StyledTabMenu = styled.nav`
   }
 `
 const ListItem = styled.li`
-  &:hover {
-    background-image: ${theme.colors.fontAccent};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
 `
 
-const Link = styled.a`
+const Link = styled.a<{ active?: boolean }> `
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   line-height: 21px;
@@ -41,4 +45,16 @@ const Link = styled.a`
   font-weight: 400;
   color: ${theme.colors.fontSecondary};
 
+  &:hover {
+    background-image: ${theme.colors.fontAccent};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  ${props => props.active && css<{ active?: boolean }>`
+    background-image: ${theme.colors.fontAccent};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  `}
+}
 `

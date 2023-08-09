@@ -1,18 +1,22 @@
 import styled, {css} from "styled-components";
 import {theme} from "../../../styles/Theme";
+import {Link} from "react-scroll";
 
 const MenuItem = styled.li`
-  &:hover {
-    background-image: ${theme.colors.fontAccent};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+
 `
 
-const Link = styled.a`
+const NavLink = styled(Link)`
   font-family: DM Sans, sans-serif;
   font-size: 20px;
   font-weight: 500;
   color: ${theme.colors.fontSecondary};
+  cursor: pointer;
+
+  &:hover, &.active {
+    background-image: ${theme.colors.fontAccent};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 `
 
 const DesktopMenu = styled.nav`
@@ -28,7 +32,7 @@ const DesktopMenu = styled.nav`
 `
 
 const MobileMenu = styled.nav`
-
+  
 `
 
 const BurgerButton = styled.button<{ isOpen: boolean }>`
@@ -90,7 +94,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   left: 0;
   z-index: 2;
   display: none;
-  background-color: ${theme.colors.primaryBg};
+  background: rgba(25, 25, 25, .9);
 
   ${props => props.isOpen && css<{ isOpen: boolean }>`
     display: flex;
@@ -109,7 +113,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
 
 export const S = {
     MenuItem,
-    Link,
+    NavLink,
     DesktopMenu,
     MobileMenu,
     BurgerButton,

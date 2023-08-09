@@ -5,10 +5,10 @@ import {DesktopMenu} from './headerMenu/desktopMenu/DesktopMenu';
 import {FlexWrapper} from "../../components/FlexWrapper";
 import {MobileMenu} from "./headerMenu/mobileMenu/mobileMenu";
 import mainLogo from '../../assets/images/logo1.svg'
-import {Icon} from "../../components/icon/Icon";
 import {S} from './Header_Styles'
+import {animateScroll as scroll} from "react-scroll";
 
-export const mainItems = ['Home', 'About', 'Tech Stack', 'Projects', 'Contacts']
+
 export const Header: React.FC = () => {
     const [width, setWidth] = useState(window.innerWidth)
     const breakpoint = 891;
@@ -24,11 +24,10 @@ export const Header: React.FC = () => {
         <S.Header>
             <Container>
                 <FlexWrapper justify='space-between' align='center'>
-                    {/*<Icon iconId={'logo'} />*/}
-                    <a href=''><S.Logo src={mainLogo}/></a>
+                    <a onClick={() => {scroll.scrollToTop()}}><S.Logo src={mainLogo}/></a>
                     <S.Wrapper>
-                        {width < breakpoint ? <MobileMenu menuItems={mainItems}/>
-                                            : <DesktopMenu menuItems={mainItems}/>}
+                        {width < breakpoint ? <MobileMenu />
+                                            : <DesktopMenu />}
                         <SocialLinks/>
                     </S.Wrapper>
                 </FlexWrapper>

@@ -1,18 +1,13 @@
 import styled from "styled-components";
-import {theme} from "../../styles/Theme";
 
 const Header = styled.header`
-  background-color: ${theme.colors.primaryBg};
-  padding: 40px 0;
+  background: rgba(25, 25, 25, .9);
+  padding: 20px 0;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 2;
-
-  @media screen and (max-width: 891px) {
-    padding: 20px 0;
-  }
 `
 
 const Wrapper = styled.div`
