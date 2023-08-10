@@ -20,8 +20,9 @@ const SocialItem = styled.li `
 `
 
 const SocialLink = styled.a `
-    color: ${theme.colors.fontSecondary};
-  
+  color: ${theme.colors.fontSecondary};
+  transition: .2s ease-in-out;
+
   &:hover {
     color: #FFF;
   }

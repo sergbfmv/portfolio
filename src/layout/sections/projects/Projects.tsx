@@ -10,8 +10,9 @@ import proj3 from '../../../assets/images/proj3.webp'
 import proj4 from '../../../assets/images/proj4.webp'
 import {Container} from "../../../components/Container";
 import {S} from './Projects_Styles'
+import {AnimatePresence, motion} from "framer-motion"
 
-const tabItems: Array<{title: string, status: TabStatusType}> = [
+const tabItems: Array<{ title: string, status: TabStatusType }> = [
     {
         title: 'ALL',
         status: 'all'
@@ -36,28 +37,32 @@ const projectsData = [
         text: 'This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content',
         techText: 'HTML , JavaScript, SASS, React',
         src: proj1,
-        type: 'spa'
+        type: 'spa',
+        id: 1
     },
     {
         title: 'Timer',
         text: 'This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content',
         techText: 'HTML , JavaScript, SASS, React',
         src: proj2,
-        type: 'react'
+        type: 'react',
+        id: 2
     },
     {
         title: 'ToDo list',
         text: 'This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content',
         techText: 'HTML , JavaScript, SASS, React',
         src: proj3,
-        type: 'spa'
+        type: 'spa',
+        id: 3
     },
     {
         title: 'Mesto',
         text: 'This is sample project description random things are here in description This is sample project lorem ipsum generator for dummy content',
         techText: 'HTML , JavaScript, SASS, React',
         src: proj4,
-        type: 'spa'
+        type: 'spa',
+        id: 4
     },
 ]
 export const Projects: React.FC = () => {
@@ -85,11 +90,25 @@ export const Projects: React.FC = () => {
             <Container>
                 <SectionTitle>Projects</SectionTitle>
                 <SectionParagraph>Things I’ve built so far</SectionParagraph>
-                <TabMenu tabItems={tabItems} changeFilterStatus={changeFilterStatus} currentFilterStatus={currentFilterStatus} />
-                <FlexWrapper wrap={'wrap'} justify={'space-between'} align={'flex-start'}>
-                    {filteredProjects.map((p, index) => {
-                        return <Project title={p.title} text={p.text} techText={p.techText} src={p.src} key={index} />
-                    })}
+                <TabMenu tabItems={tabItems} changeFilterStatus={changeFilterStatus}
+                         currentFilterStatus={currentFilterStatus}/>
+                <FlexWrapper wrap={'wrap'} justify={'space-around'} align={'flex-start'}>
+                    <AnimatePresence>
+                        {filteredProjects.map((p, index) => {
+                            return (
+                                <motion.div style={{width: '330px', flexGrow: 1, maxWidth: '375px'}}
+                                initial={{opacity: 0}}
+                                animate={{opacity: 1}}
+                                exit={{opacity: 0}}
+                                layout={true}
+                                key={p.id}
+                                >
+                                    <Project title={p.title} text={p.text} techText={p.techText} src={p.src}
+                                              key={p.id}/>
+                                </motion.div>
+                            )
+                        })}
+                    </AnimatePresence>
                 </FlexWrapper>
             </Container>
         </S.Projects>

@@ -11,6 +11,7 @@ const Projects = styled.section`
 `
 
 const Link = styled.a`
+  position: relative;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -21,13 +22,29 @@ const Link = styled.a`
   align-items: center;
   margin-top: 15px;
 
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
   &:hover {
-    text-decoration: underline;
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
   }
 `
 const Project = styled.div`
-  width: 330px;
-  flex-grow: 1;
+  //width: 330px;
+  //flex-grow: 1;
   background-color: ${theme.colors.secondaryBg};
   border-radius: 20px;
   
@@ -38,7 +55,7 @@ const Project = styled.div`
   }
   
   @media ${theme.media.desctop} {
-    max-width: 375px;
+    //max-width: 375px;
   }
 `
 

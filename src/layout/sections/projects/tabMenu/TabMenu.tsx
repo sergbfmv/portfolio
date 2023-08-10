@@ -44,17 +44,39 @@ const Link = styled.a<{ active?: boolean }> `
   letter-spacing: 1px;
   font-weight: 400;
   color: ${theme.colors.fontSecondary};
+  position: relative;
 
-  &:hover {
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
     background-image: ${theme.colors.fontAccent};
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
   }
-  
+
   ${props => props.active && css<{ active?: boolean }>`
     background-image: ${theme.colors.fontAccent};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
   `}
+
+  &:hover, &.active {
+    background-image: ${theme.colors.fontAccent};
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
 }
 `

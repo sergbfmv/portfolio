@@ -19,7 +19,7 @@ export const Contacts: React.FC = () => {
 };
 
 const StyledContacts = styled.section`
-    
+    padding: 250px 0;
 `
 
 const Title = styled.h2 `

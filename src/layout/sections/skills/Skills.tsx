@@ -5,6 +5,7 @@ import {SectionTitle} from '../../../components/SectionTitle';
 import {Skill} from './skill/Skill';
 import {SectionParagraph} from "../../../components/SectionParagraph";
 import {Container} from "../../../components/Container";
+import {Fade} from "react-awesome-reveal";
 
 
 const skillData = [
@@ -28,9 +29,11 @@ export const Skills: React.FC = () => {
                 <SectionTitle>My Tech Stack</SectionTitle>
                 <SectionParagraph>Technologies I’ve been working with recently</SectionParagraph>
                 <FlexWrapper wrap={'wrap'} justify={'space-between'}>
-                    {skillData.map((skill, index) => {
-                        return <Skill iconId={skill.iconId} key={index} />
-                    })}
+                    <Fade cascade={true} damping={0.2}>
+                        {skillData.map((skill, index) => {
+                            return <Skill iconId={skill.iconId} key={index}/>
+                        })}
+                    </Fade>
                 </FlexWrapper>
             </Container>
         </StyleSkills>

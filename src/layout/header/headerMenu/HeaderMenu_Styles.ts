@@ -12,11 +12,32 @@ const NavLink = styled(Link)`
   font-weight: 500;
   color: ${theme.colors.fontSecondary};
   cursor: pointer;
+  transition: .2s ease-in-out;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-image: ${theme.colors.fontAccent};
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
 
   &:hover, &.active {
     background-image: ${theme.colors.fontAccent};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
 `
 
 const DesktopMenu = styled.nav`
@@ -55,6 +76,7 @@ const BurgerButton = styled.button<{ isOpen: boolean }>`
     ${props => props.isOpen && css<{ isOpen: boolean }>`
       background-color: rgba(255, 255, 255, 0);
     `}
+    
     &::before {
       content: '';
       display: block;
@@ -93,22 +115,29 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   bottom: 0;
   left: 0;
   z-index: 2;
-  display: none;
   background: rgba(25, 25, 25, .9);
-
-  ${props => props.isOpen && css<{ isOpen: boolean }>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: .8s ease-in-out;
   
   ul {
     display: flex;
-    gap: 50px;
+    gap: 10px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    transition: .8s ease-in-out;
   }
+
+  ${props => props.isOpen && css<{ isOpen: boolean }>`
+    transform: translateY(0);
+    
+    & ul {
+      gap: 50px;
+    }
+  `}
 `
 
 export const S = {

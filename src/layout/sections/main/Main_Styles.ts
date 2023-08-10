@@ -7,6 +7,7 @@ const Main = styled.section`
   min-height: 100vh;
   display: flex;
   overflow-x: hidden;
+  overflow-y: hidden;
 `
 
 const Photo = styled.img`
@@ -14,7 +15,7 @@ const Photo = styled.img`
   height: 349px;
   border-radius: 230px;
   object-fit: cover;
-  
+
   @media ${theme.media.tablet} {
     width: 310px;
     height: 310px;
@@ -29,7 +30,7 @@ const Photo = styled.img`
 const PhotoWrapper = styled.div `
   position: relative;
   z-index: 0;
-  
+
   &::before {
     content: '';
     position: absolute;
@@ -41,7 +42,7 @@ const PhotoWrapper = styled.div `
     background: ${theme.colors.fontAccent};
     z-index: -1;
   }
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -58,7 +59,7 @@ const PhotoWrapper = styled.div `
 const MainTitle = styled.h1`
   ${font({weight: 700, Fmin: 36, Fmax: 56})}
   letter-spacing: -1px;
-  
+
   p {
     display: none;
   }
