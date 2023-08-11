@@ -67,10 +67,10 @@ const projectsData = [
     },
     {
         title: 'Batman',
-        text: 'SPA about Batman movie',
+        text: 'Landing page about Batman movie',
         techText: 'HTML , JavaScript, CSS',
         src: projBatman,
-        type: 'spa',
+        type: 'landing',
         projDemoLink: 'https://sergbfmv.github.io/Batman/index.html',
         projCodeLink: 'https://github.com/sergbfmv/Batman',
         id: 5
