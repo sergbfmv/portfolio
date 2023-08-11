@@ -59,6 +59,7 @@ const PhotoWrapper = styled.div `
 const MainTitle = styled.h1`
   ${font({weight: 700, Fmin: 36, Fmax: 56})}
   letter-spacing: -1px;
+  margin-bottom: 20px;
 
   p {
     display: none;

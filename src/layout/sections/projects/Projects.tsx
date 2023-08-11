@@ -8,6 +8,7 @@ import proj1 from '../../../assets/images/proj1.webp'
 import proj2 from '../../../assets/images/proj2.webp'
 import proj3 from '../../../assets/images/proj3.webp'
 import proj4 from '../../../assets/images/proj4.webp'
+import projBatman from '../../../assets/images/proj-Batman.webp'
 import {Container} from "../../../components/Container";
 import {S} from './Projects_Styles'
 import {AnimatePresence, motion} from "framer-motion"
@@ -63,6 +64,14 @@ const projectsData = [
         src: proj4,
         type: 'spa',
         id: 4
+    },
+    {
+        title: 'Batman',
+        text: 'SPA about Batman movie',
+        techText: 'HTML , JavaScript, CSS',
+        src: projBatman,
+        type: 'spa',
+        id: 5
     },
 ]
 export const Projects: React.FC = () => {

@@ -5,6 +5,7 @@ import {theme} from "../../../styles/Theme";
 
 const Projects = styled.section`
   position: relative;
+  
   ${FlexWrapper} {
     gap: 30px;
   }
@@ -47,6 +48,7 @@ const Project = styled.div`
   //flex-grow: 1;
   background-color: ${theme.colors.secondaryBg};
   border-radius: 20px;
+  height: 571px;
   
   ${Link} {
     & + ${Link} {
@@ -79,7 +81,7 @@ const Title = styled.h4`
 
 const Text = styled.p`
   ${font({weight: 300, lineHeight: '26px', Fmin: 14, Fmax: 18})}
-  margin-top: 17px;
+  margin-top: 15px;
   margin-bottom: 12px;
   font-style: normal;
 `
@@ -99,7 +101,7 @@ const LineText = styled.span `
 `
 
 const LinkName = styled.span `
-  ${font({weight: 400, lineHeight: '26px', Fmin: 14, Fmax: 16})}
+  ${font({weight: 400, lineHeight: '26px', Fmin: 12, Fmax: 15})}
   margin-left: 10px;
   font-style: normal;
 `
