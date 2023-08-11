@@ -12,7 +12,6 @@ const Projects = styled.section`
 `
 
 const Link = styled.a`
-  position: relative;
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
@@ -22,25 +21,11 @@ const Link = styled.a`
   display: flex;
   align-items: center;
   margin-top: 15px;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #fff;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
+  bottom: 20px;
+  position: absolute;
   
-  &:hover {
-    &::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
+  &:last-child {
+    left: 170px;
   }
 `
 const Project = styled.div`
@@ -49,6 +34,7 @@ const Project = styled.div`
   background-color: ${theme.colors.secondaryBg};
   border-radius: 20px;
   height: 571px;
+  position: relative;
   
   ${Link} {
     & + ${Link} {
@@ -101,9 +87,30 @@ const LineText = styled.span `
 `
 
 const LinkName = styled.span `
-  ${font({weight: 400, lineHeight: '26px', Fmin: 12, Fmax: 15})}
+  ${font({weight: 400, lineHeight: '26px', Fmin: 12, Fmax: 14})}
   margin-left: 10px;
   font-style: normal;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
 `
 
 export const S = {

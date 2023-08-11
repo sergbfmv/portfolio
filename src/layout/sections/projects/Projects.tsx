@@ -71,6 +71,8 @@ const projectsData = [
         techText: 'HTML , JavaScript, CSS',
         src: projBatman,
         type: 'spa',
+        projDemoLink: 'https://sergbfmv.github.io/Batman/index.html',
+        projCodeLink: 'https://github.com/sergbfmv/Batman',
         id: 5
     },
 ]
@@ -113,7 +115,7 @@ export const Projects: React.FC = () => {
                                 key={p.id}
                                 >
                                     <Project title={p.title} text={p.text} techText={p.techText} src={p.src}
-                                              key={p.id}/>
+                                              key={p.id} projCodeLink={p.projCodeLink} projDemoLink={p.projDemoLink}/>
                                 </motion.div>
                             )
                         })}
