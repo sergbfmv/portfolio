@@ -44,10 +44,10 @@ const projectsData = [
     {
         title: 'Counter',
         text: 'This is sample project counter. You can add min and max value and save it in local storage for saving you count.',
-        techText: 'HTML, CSS, JavaScript, React, React-router-dom',
+        techText: 'HTML, CSS, JavaScript, TypeScript, React, React-router-dom',
         src: projCount,
         type: 'react',
-        projDemoLink: 'https://sergbfmv.github.io/Batman/index.html',
+        projDemoLink: 'https://sergbfmv.github.io/Counter/',
         projCodeLink: 'https://github.com/sergbfmv/Counter',
         id: 2,
 
